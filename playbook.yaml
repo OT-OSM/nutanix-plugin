@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+  tasks:
+  - name: Triggering nutanix create vm creation API
+    nutanix_vm_create:
+      username: "{{ lookup('env','NUTANIX_USERNAME') }}"
+      password: "{{ lookup('env','NUTANIX_PASSWORD') }}"
+      nutanix_api_url: "https://td269ocps5z2w.nutanixtestdrive.com"
+      vm_name: "test-vm-ansible"
+      power_state: "ON"
+      num_sockets: 1
+      num_vcpus_per_socket: 1
+      num_threads_per_core: 1
+      memory_size_mib: 1024
